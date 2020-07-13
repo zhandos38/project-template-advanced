@@ -2,12 +2,12 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Админ панель | FreeWay';
+$this->title = 'Админ панель';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>FreeWay</h1>
+        <h1><?= Yii::$app->name ?></h1>
 
         <p class="lead">Добро пожаловать в админ панель</p>
 

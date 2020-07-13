@@ -2,6 +2,7 @@
 
 namespace backend\models;
 
+use kartik\daterange\DateRangeBehavior;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Post;
@@ -11,14 +12,32 @@ use common\models\Post;
  */
 class PostSearch extends Post
 {
+    public $createTimeRange;
+    public $createTimeStart;
+    public $createTimeEnd;
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => DateRangeBehavior::className(),
+                'attribute' => 'createTimeRange',
+                'dateStartAttribute' => 'createTimeStart',
+                'dateEndAttribute' => 'createTimeEnd',
+            ]
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'views', 'type_id', 'created_at', 'updated_at'], 'integer'],
-            [['title', 'content'], 'safe'],
+            [['id', 'created_at'], 'integer'],
+            [['title'], 'string', 'max' => 255],
+
+            [['createTimeRange'], 'match', 'pattern' => '/^.+\s\-\s.+$/']
         ];
     }
 
@@ -46,11 +65,6 @@ class PostSearch extends Post
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'sort' => [
-                'defaultOrder' => [
-                    'id' => SORT_DESC
-                ]
-            ]
         ]);
 
         $this->load($params);
@@ -64,14 +78,15 @@ class PostSearch extends Post
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'views' => $this->views,
-            'type_id' => $this->type_id,
             'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'content', $this->content]);
+        $query->andFilterWhere(['like', 'title', $this->title]);
+
+        if ($this->createTimeRange) {
+            $query->andFilterWhere(['>=', 'created_at', $this->createTimeStart])
+                ->andFilterWhere(['<', 'created_at', $this->createTimeEnd]);
+        }
 
         return $dataProvider;
     }

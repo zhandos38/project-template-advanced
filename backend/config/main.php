@@ -8,7 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
-    'name' => 'FreeWay',
+    'name' => 'Project',
     'language' => 'ru',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
@@ -45,18 +45,6 @@ return [
             'rules' => [
             ],
         ],
-    ],
-    'controllerMap' => [
-        'elfinder' => [
-            'class' => 'mihaildev\elfinder\PathController',
-            'access' => ['@'],
-            'root' => [
-                'baseUrl'=>'http://static.freeway',
-                'basePath'=>'@static',
-                'path' => 'upload/global',
-                'name' => 'Global'
-            ],
-        ]
     ],
     'params' => $params,
 ];
