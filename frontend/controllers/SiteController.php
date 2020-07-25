@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\Mark;
 use common\models\Post;
+use common\models\Slider;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use Yii;
@@ -78,7 +79,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $this->layout = 'home';
+
+        $sliders = Slider::find()->all();
+        return $this->render('index', [
+            'sliders' => $sliders
+        ]);
     }
 
     /**
@@ -180,9 +186,9 @@ class SiteController extends Controller
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
 
                 return $this->goHome();
-            } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
             }
+
+            Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
         }
 
         return $this->render('requestPasswordResetToken', [

@@ -1,0 +1,145 @@
+.section {
+  padding: 60px 0;
+}
+
+.section-about__img {
+  width: 100%;
+}
+
+.section.section-about {
+  background-image: url("/img/london-bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.feature-card__image {
+  width: 65%;
+}
+
+.feature-card__image-wrapper {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.section.section-feature {
+  background: #f9f9f9;
+}
+
+.feature-card {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #fff;
+  transition: box-shadow .3s,color .3s,-webkit-box-shadow .3s;
+  margin: 10px 0;
+}
+
+.feature-card__title {
+  margin-top: 16px;
+}
+
+.feature-card:hover {
+  -webkit-box-shadow: 0 0 15px 0 rgba(0,31,51,.4);
+  box-shadow: 0 0 15px 0 rgba(0,31,51,.4);
+}
+
+.section-about__text {
+  margin-top: 20px;
+}
+
+.info-counter__number {
+  font-weight: 700;
+  font-size: 46px;
+}
+
+.info-counter {
+  text-align: center;
+  color: #fff;
+}
+
+.info-counter__title {
+  font-size: 20px;
+}
+
+.section-info {
+  background: linear-gradient(90deg, rgba(0,0,0,0.8) 10%, rgba(0,0,0,0.8) 40%), url("/img/towerbridgecopyrightvisitlondoncomantoinebuchet.jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.carousel-item {
+  height: 100vh;
+}
+
+.card__titile {
+  color: #ffffff;
+}
+
+.card {
+  color: #fff;
+  margin: 20px 0;
+}
+
+.section.section-courses {
+  background: #f9f9f9;
+}
+
+.courses__footer {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.lifehacks__footer {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.life-hack {
+  margin: 20px 0;
+}
+
+footer {
+  padding: 60px 0 20px 0;
+  background-color: #0d0d0d;
+  color: #fff;
+}
+
+dl, ol, ul {
+  list-style: none;
+}
+
+footer ul li a {
+  color: #fff;
+}
+
+footer li {
+  margin: 10px 0;
+}
+
+.dev-info {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.section-hero {
+  background: linear-gradient(90deg, rgba(0,0,0,0.8) 20%, rgba(99,81,81,0.4) 40%), url("/img/towerbridgecopyrightvisitlondoncomantoinebuchet.jpg");
+  padding: 160px 0 40px 0;
+  color: #fff;
+}
+
+.section-hero__title {
+  color: #fff;
+}
+
+.section-hero__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.help-block-error {
+  color: #f44336;
+}
+

@@ -26,7 +26,9 @@
         "himiklab/yii2-easy-thumbnail-image-helper": "*",
         "boundstate/yii2-mailgun": "^1.0",
         "vova07/yii2-imperavi-widget": "*",
-        "kartik-v/yii2-widget-fileinput": "@dev"
+        "kartik-v/yii2-widget-fileinput": "@dev",
+        "yii2mod/yii2-sweet-alert": "*",
+        "codemix/yii2-localeurls": "^1.7"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

@@ -11,9 +11,12 @@ use yii\helpers\VarDumper;
  */
 class SignupForm extends Model
 {
-    public $username;
+    public $name;
+    public $surname;
     public $email;
+    public $phone;
     public $password;
+    public $password_repeat;
     public $role;
     public $status;
 
@@ -24,10 +27,8 @@ class SignupForm extends Model
     public function rules()
     {
         return [
-            ['username', 'trim'],
-            ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            [['name', 'surname', 'phone'], 'required'],
+            [['name', 'surname', 'phone'], 'string', 'max' => 255],
 
             ['email', 'trim'],
             ['email', 'required'],
@@ -35,18 +36,26 @@ class SignupForm extends Model
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
-            ['password', 'required'],
-            ['password', 'string', 'min' => 6],
+            ['password','required', 'message' => Yii::t('app', 'Придумайте пароль')],
+            ['password_repeat' ,'required', 'message' => '{attribute}'],
+            ['password', 'string', 'min' => 6, 'message' => Yii::t('app', 'Пароль должен содержать минимум 6 символов')],
+            ['password_repeat', 'compare', 'compareAttribute' => 'password', 'message' => Yii::t('app', 'Пароли не совпадают')],
+            ['password', 'match', 'pattern' => '/^[a-zA-Z0-9_-]+$/', 'message' => Yii::t('app', 'Пароль должен содержать только латинские буквы, спецсимволы и/или цифры')],
 
-            [['status', 'role'], 'integer']
+            [['status'], 'integer'],
+            ['role', 'safe']
         ];
     }
 
     public function attributeLabels()
     {
         return [
-            'username' => 'Логин',
-            'password' => 'Пароль'
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'email' => 'Почта',
+            'phone' => 'Номер телефона',
+            'password' => 'Пароль',
+            'password_repeat' => 'Повторите пароль',
         ];
     }
 
@@ -62,8 +71,12 @@ class SignupForm extends Model
         }
 
         $user = new User();
-        $user->username = $this->username;
+        $user->name = $this->name;
+        $user->surname = $this->surname;
         $user->email = $this->email;
+        $user->phone = $this->phone;
+        $user->role = User::ROLE_USER;
+        $user->status = User::STATUS_INACTIVE;
         $user->setPassword($this->password);
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();

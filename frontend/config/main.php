@@ -10,6 +10,7 @@ return [
     'id' => 'app-frontend',
     'name' => 'FreeWay.kz',
     'basePath' => dirname(__DIR__),
+    'language' => 'ru',
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
@@ -38,9 +39,15 @@ return [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
+            'class' => 'codemix\localeurls\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'languages' => ['ru', 'kz'],
+            'enableDefaultLanguageUrlCode' => true,
             'rules' => [
+                '/' => 'site/index',
+                'login' => 'site/login',
+                'signup' => 'site/signup'
             ],
         ],
     ],
