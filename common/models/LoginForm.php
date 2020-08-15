@@ -7,11 +7,10 @@ use yii\helpers\VarDumper;
 
 /**
  * Login form
- *
  */
 class LoginForm extends Model
 {
-    public $email;
+    public $username;
     public $password;
     public $rememberMe = true;
 
@@ -25,20 +24,11 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['email', 'password'], 'required'],
-            ['email', 'email'],
+            [['username', 'password'], 'required'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
-        ];
-    }
-
-    public function attributeLabels()
-    {
-        return [
-            'password' => Yii::t('app', 'Пароль'),
-            'rememberMe' => Yii::t('app', 'Запомни меня'),
         ];
     }
 
@@ -54,7 +44,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, Yii::t('app', 'Неправильный логин или пароль'));
+                $this->addError($attribute, 'Incorrect username or password.');
             }
         }
     }
@@ -81,7 +71,7 @@ class LoginForm extends Model
     protected function getUser()
     {
         if ($this->_user === null) {
-            $this->_user = User::findByEmail($this->email);
+            $this->_user = User::findByUsername($this->username);
         }
 
         return $this->_user;

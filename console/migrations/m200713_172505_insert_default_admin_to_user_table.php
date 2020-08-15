@@ -15,12 +15,10 @@ class m200713_172505_insert_default_admin_to_user_table extends Migration
     public function safeUp()
     {
         $this->insert($this->tableName, [
-            'name' => 'admin',
-            'surname' => 'admin',
+            'username' => 'admin',
             'auth_key' => '123',
             'password_hash' => '$2y$13$u/VLohfRG5ZUieodqJZiSutCOl1rZqUqPlAyazDjbckd6kOBAFhMK',
             'email' => 'admin@mail.ru',
-            'phone' => '777',
             'status' => 10,
             'role' => 'admin',
             'created_at' => '123',

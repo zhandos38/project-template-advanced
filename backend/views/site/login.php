@@ -21,7 +21,7 @@ $fieldOptions2 = [
 
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Online</b> English</a>
+        <a href="#"><b>Cash</b> Project</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -32,9 +32,9 @@ $fieldOptions2 = [
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'enableClientValidation' => false]); ?>
 
         <?= $form
-            ->field($model, 'email', $fieldOptions1)
+            ->field($model, 'username', $fieldOptions1)
             ->label(false)
-            ->textInput(['placeholder' => $model->getAttributeLabel('email')]) ?>
+            ->textInput(['placeholder' => $model->getAttributeLabel('username')]) ?>
 
         <?= $form
             ->field($model, 'password', $fieldOptions2)

@@ -12,13 +12,11 @@ use yii\web\IdentityInterface;
  * User model
  *
  * @property integer $id
- * @property string $name
- * @property string $surname
+ * @property string $username
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $verification_token
  * @property string $email
- * @property string $phone
  * @property string $auth_key
  * @property integer $status
  * @property integer $role
@@ -60,7 +58,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['name', 'surname', 'phone'], 'string', 'max' => 255],
+            ['username', 'string', 'max' => 255],
             ['email', 'email'],
 
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
@@ -71,14 +69,10 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'name' => 'Имя',
-            'surname' => 'Фамилия',
+            'username' => 'Логин',
             'role' => 'Роль',
-            'email' => 'Почта',
-            'phone' => 'Номер телефона',
             'status' => 'Статус',
-            'created_at' => 'Время добавления',
-            'update_at' => 'Время обновления'
+            'created_at' => 'Дата добавление'
         ];
     }
 
@@ -99,14 +93,14 @@ class User extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Finds user by email
+     * Finds user by username
      *
-     * @param string $email
+     * @param string $username
      * @return static|null
      */
-    public static function findByEmail($email)
+    public static function findByUsername($username)
     {
-        return static::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**

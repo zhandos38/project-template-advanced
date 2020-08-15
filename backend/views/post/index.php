@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]) ?>
+    ]); ?>
 
     <?php LteBox::end() ?>
 
