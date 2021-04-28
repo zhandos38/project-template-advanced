@@ -1,0 +1,106 @@
+section {
+    margin: 32px auto;
+}
+
+.top-bar {
+    background-color: #083759;
+    color: #fff;
+    padding: 15px 0;
+}
+.top-bar-img {
+    width: 32px;
+    height: 32px;
+}
+.top-bar-title {
+    margin-left: 10px;
+}
+.top-bar-egov-img {
+    height: 20px;
+    margin-left: 10px;
+}
+.top-bar-icons-box {
+    display: flex;
+    margin-right: 24px;
+}
+.top-bar-icon-btn {
+    width: 30px;
+    height: 30px;
+    background: rgba(21, 21, 21, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    padding-left: 8px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.top-bar-lang-box i {
+    margin-right: 5px;
+}
+.top-bar-lang-box a {
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-decoration: underline;
+    color: #fff !important;
+}
+
+.header__box {
+    padding-top: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    background: #1F3C88;
+    color: #fff;
+}
+.header__title {
+    font-weight: 500;
+    font-size: 1.625rem;
+    margin-left: 15px;
+}
+
+.nav-bar {
+    transition: .3s all;
+    background: #1F3C88;
+    height: 68px;
+    padding-top: 10px;
+}
+.nav-bar a {
+    color: #fff;
+}
+.nav-bar__search-icon {
+    color: #ffffff;
+    font-size: 22px;
+    padding-top: 10px;
+}
+
+.breadcrumbs {
+    margin-top: 32px;
+    font-size: 0.75rem;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 198px;
+    min-height: 198px;
+    overflow: hidden;
+    position: relative;
+}
+.card-title {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.section-news {
+    margin-top: 5px;
+}
+.news-list-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.list-group-item__title {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.footer-list {
+    list-style: none;
+}

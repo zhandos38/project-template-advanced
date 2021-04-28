@@ -26,12 +26,14 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <div class="container">
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
+<?= $this->render('_header') ?>
+
+<div class="container">
+    <?= Alert::widget() ?>
+    <?= $content ?>
 </div>
+
+<?= $this->render('_footer') ?>
 
 <?php $this->endBody() ?>
 </body>
